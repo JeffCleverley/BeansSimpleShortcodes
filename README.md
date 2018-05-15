@@ -2,7 +2,7 @@
 
 Plugin to add the simple shortcodes for displaying theme and post information easily.  
 
-All shortcodes:
+#### All shortcodes:
 
 - Output html content and markdown using Beans HTML API functions.  
 - Have shortcode default and output filters.
@@ -12,7 +12,7 @@ So not to load unnecessary code, each Shortcode has a checkbox on the Beans Simp
 
 Very much a work in progress:
 
-Plans:
+Development lans:
 
 - Load shortcodes via configuration, allow users to add other shortcodes and hook into the admin interface and enable/disable functionality.  
 - Vary shortcode admin metaboxes opacity depending on enabled/disabled state.    
