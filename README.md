@@ -17,10 +17,10 @@ Plans:
 - Load shortcodes via configuration, allow users to add other shortcodes and hook into the admin interface and enable/disable functionality.  
 - Vary shortcode admin metaboxes opacity depending on enabled/disabled state.    
 
-##Post Shortcodes include: 
+## Post Shortcodes include: 
 (only usable on posts/post-meta areas)
 
-####[beans_date_posted]
+#### [beans_date_posted]
 
 Shortcode to display the date a post was published. Supported attributes are:  
 
@@ -30,7 +30,7 @@ date-format     - Date format (defaults to current WordPress setting).
 
 Acceptable date formats can be found here: https://codex.wordpress.org/Formatting_Date_and_Time  
 
-####[beans_date_updated]
+#### [beans_date_updated]
 
 Shortcode to display the date a post was last updated. Supported attributes are:  
 
@@ -40,7 +40,7 @@ date-format     - Date format (defaults to current WordPress setting).
 
 Acceptable date formats can be found here: https://codex.wordpress.org/Formatting_Date_and_Time  
 
-####[beans_time_posted]
+#### [beans_time_posted]
 
 Shortcode to display the time a post was published. Supported attributes are:  
 
@@ -50,7 +50,7 @@ time-format     - Time format (defaults to current WordPress setting).
 
 Acceptable Time formats can be found here: https://codex.wordpress.org/Formatting_Date_and_Time  
 
-####[beans_time_updated]
+#### [beans_time_updated]
 
 Shortcode to display the time a post was last updated. Supported attributes are:  
 
@@ -60,21 +60,21 @@ time-format     - Time format (defaults to current WordPress setting).
 
 Acceptable Time formats can be found here: https://codex.wordpress.org/Formatting_Date_and_Time  
 
-####[beans_post_author]
+#### [beans_post_author]
 
 Shortcode that displays the unlinked post author's name. Supported attributes are:  
 
 before= - Displayed before the post author's name (defaults to 'By ').  
 after=  - Displayed after the post author's name (defaults to empty string).  
 
-####[beans_post_author_link]
+#### [beans_post_author_link]
 
 Shortcode that displays the post author's name as a link. Supported attributes are:  
 
 before  - Displayed before the post author link (defaults to 'By ').  
 after   - Displayed after the post author link (defaults to empty string).  
 
-####[beans_post_comments]
+#### [beans_post_comments]
 
 Shortcode that displays a link to the current post's comments. Supported attributes are:  
 
@@ -84,7 +84,7 @@ no-comments     - Text when there are no comments (defaults to 'Leave a comment'
 one-comment     - Text when there is one comment (defaults to '1 comment').  
 more-comments   - Text when there are multiple comments (defaults to '%s comments').
 
-####[beans_post_tags]
+#### [beans_post_tags]
 
 Shortcode that displays the post tag links. Supported attributes are:  
 
@@ -92,7 +92,7 @@ before  - Displayed before the tag link list (defaults to 'Tagged with: ').
 after   - Displayed after the tag link list (defaults to empty string).  
 sep     - Displayed between items in the tag list (defaults to ', ').  
 
-####[beans_post_categories]
+#### [beans_post_categories]
 
 Shortcode that displays the categories links list. Supported attributes are:
 
@@ -100,7 +100,7 @@ before  - Displayed before the category link list (defaults to 'Filed under: ').
 after   - Displayed after the category link list (defaults to empty string).  
 sep     - Displayed between items in the category list (defaults to ', ').  
 
-####[beans_post_terms]
+#### [beans_post_terms]
 
 Shortcode that displays a linked list of taxonomy terms for the post. Supported attributes are:  
 
@@ -109,7 +109,7 @@ after       - Displayed after the taxonomy terms link list (defaults to empty st
 sep         - Separator displayed between items in the list (defaults to ', ').  
 taxonomy    - Name of the taxonomy to display (defaults to 'category').  
 
-####[beans_post_edit]
+#### [beans_post_edit]
 
 Shortcode that displays the edit post link. Supported attributes are:  
 
@@ -120,7 +120,7 @@ link    - Link text to be displayed (defaults to '(Edit)').
 ##General Shortcodes include:
 (can be used anywhere - footer etc)
 
-####[beans_copyright]
+#### [beans_copyright]
 
 Shortcode that adds a visual copyright notice. Supported attributes are:  
 
@@ -129,7 +129,7 @@ after       - Displayed after the Copyright notice (defaults to empty string).
 copyright   - Copyright character (defaults to ©).  
 first-year  - The year copyright first applies (defaults to empty string).  
 
-####[beans_childtheme_link]
+#### [beans_childtheme_link]
 
 Shortcode that adds a link to the child theme. Supported attributes are: 
 
@@ -140,7 +140,7 @@ after               - Displayed after the date (defaults to empty string).
 child-theme-name    - Name of the child theme (defaults to defined CHILD_THEME_NAME).  
 child-theme-url     - URL of the child theme (defaults to defined CHILD_THEME_NAME).  
 
-####[beans_theme_link]
+#### [beans_theme_link]
 
 Shortcode that adds a link to the Beans Theme Framework. Supported attributes are:  
 
@@ -149,7 +149,7 @@ after       - Displayed after the theme Beans framework link (defaults to empty 
 beans       - Name of the Beans theme framework (defaults to 'Beans').  
 beans-url   - URL of the Beans theme framework (defaults to 'https://getbeans.io').  
 
-####[beans_wordpress_link]
+#### [beans_wordpress_link]
 
 Shortcode that adds a link to WordPress.org. Supported attributes are:  
 
@@ -158,21 +158,21 @@ after           - Displayed after the WordPress.org link (defaults to empty stri
 wordpress       - WordPress, the one and only (defaults to 'WordPress').  
 wordpress-url   - URL of WordPress.org (defaults to 'https://wordpress.org').  
 
-####[beans_site_title]
+#### [beans_site_title]
 
 Shortcode displays the unlinked site title. Supported attributes are:  
 
 before  - Displayed before the site title (defaults to empty string).  
 after   - Displayed after the site title (defaults to empty string).  
 
-####[beans_home_link]
+#### [beans_home_link]
 
 Shortcode displays a link to the home page. Supported attributes are:  
 
 before  - Displayed before the homepage link (defaults to empty string).  
 after   - Displayed after the homepage link (defaults to empty string).  
 
-####[beans_loginout]
+#### [beans_loginout]
 
 
 Shortcode displays an admin login / logout link depending on whether a user is logged in or out.  
