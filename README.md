@@ -117,7 +117,7 @@ before  - Displayed before the post edit link (defaults to empty string).
 after   - Displayed after the post edit link (defaults to empty string).  
 link    - Link text to be displayed (defaults to '(Edit)').  
 
-##General Shortcodes include:
+## General Shortcodes include:
 (can be used anywhere - footer etc)
 
 #### [beans_copyright]
