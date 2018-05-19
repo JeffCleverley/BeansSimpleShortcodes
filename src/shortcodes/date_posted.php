@@ -67,6 +67,8 @@ function date_posted_shortcode( $atts ) {
 
 	beans_close_markup_e( 'beans_simple_post_meta_date_posted', 'time' );
 
+	beans_output_e( 'beans_simple_post_meta_date_posted_prefix', $atts['after'] );
+
 	beans_close_markup_e( 'beans_simple_post_meta_date_posted_span', 'span' );
 
 	$output = ob_get_clean();

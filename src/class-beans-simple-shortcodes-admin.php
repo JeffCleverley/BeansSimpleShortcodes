@@ -82,9 +82,7 @@ class Beans_Simple_Shortcodes_Admin {
 	public function display_simple_shortcodes_settings_screen() {
 
 		require __DIR__ . "/views/admin.php";
-
 	}
-
 
 	public function register_shortcodes_admin( $shortcode, $shortcode_intro, $shortcodes_attributes ) {
 
