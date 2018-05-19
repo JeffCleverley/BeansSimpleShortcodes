@@ -64,6 +64,7 @@ function deactivate_when_beans_not_activated_theme() {
 function autoload_files() {
 
 	$files = array(
+		'/config/shortcodes.php',
         'class-beans-simple-shortcodes.php'
 	);
 
