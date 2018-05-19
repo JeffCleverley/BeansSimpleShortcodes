@@ -46,10 +46,13 @@ class Beans_Simple_Shortcodes_Admin {
 
 		add_action( 'admin_menu', array( $this, 'admin_menu' ), 150 );
 
-		foreach ( $this->shortcodes_library as $shortcode => $shortcode_intro ) {
+		foreach ( $this->shortcodes_library as $shortcode => $shortcode_descriptions ) {
 
-			add_action( 'admin_init', function () use ( $shortcode, $shortcode_intro ) {
-				$this->register_shortcodes_admin( $shortcode, $shortcode_intro );
+			$shortcode_description = $shortcode_descriptions[ 'shortcode_description' ];
+			$attributes_description =  $shortcode_descriptions[ 'attributes_description' ];
+
+			add_action( 'admin_init', function () use ( $shortcode, $shortcode_description, $attributes_description ) {
+				$this->register_shortcodes_admin( $shortcode, $shortcode_description, $attributes_description );
 			} );
 
 		}
@@ -83,14 +86,17 @@ class Beans_Simple_Shortcodes_Admin {
 	}
 
 
-	public function register_shortcodes_admin( $shortcode, $shortcode_intro ) {
+	public function register_shortcodes_admin( $shortcode, $shortcode_intro, $shortcodes_attributes ) {
 
 		$label = __( $shortcode_intro, $this->plugin_textdomain );
 		ob_start();
 		beans_output_e( "beans_simple_shortcodes_{$shortcode}_label_text", $label );
 		$label = ob_get_clean();
 
-		$shortcode_attributes_description = include __DIR__ . "/views/{$shortcode}-description.php";
+		$shortcode_attributes_description =  $shortcodes_attributes;
+		ob_start();
+		beans_output_e( "beans_simple_shortcodes_{$shortcode}_attributes_description", $shortcode_attributes_description);
+		$shortcode_attributes_description = ob_get_clean();
 
 		$checkbox_label = __( "Check this box and click save to <strong>deactivate</strong> the <strong>[beans_{$shortcode}]</strong> shortcode", $this->plugin_textdomain );
 		ob_start();
