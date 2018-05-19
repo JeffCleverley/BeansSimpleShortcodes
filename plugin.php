@@ -65,7 +65,7 @@ function autoload_files() {
 
 	$files = array(
 		'/config/shortcodes.php',
-        'class-beans-simple-shortcodes.php'
+        'class-beans-simple-shortcodes.php',
 	);
 
 	foreach ( $files as $file ) {

@@ -8,7 +8,7 @@ function configuration() {
 
 	$shortcodes = array(
 		'date_posted',
-		'date_updated',
+//		'date_updated',
 //		'time_posted',
 //		'time_updated',
 //		'post_author',

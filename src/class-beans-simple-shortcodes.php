@@ -54,7 +54,7 @@ class Beans_Simple_Shortcodes {
 		$this->plugin_dir_path = plugin_dir_path( __FILE__ );
 		$this->shortcodes_library = $shortcodes;
 
-		foreach ( $this->shortcodes_library as $shortcode => $shortcode_descriptions ) {
+		foreach ( $this->shortcodes_library as $shortcode => $shortcode_descriptions_array ) {
 
 			if ( get_option( "beans_simple_deactivate_{$shortcode}_shortcode_checkbox" ) ) {
 				continue;
@@ -84,9 +84,9 @@ class Beans_Simple_Shortcodes {
 	 */
 	public function instantiate() {
 
-//		require_once( $this->plugin_dir_path . 'class-beans-simple-shortcodes-core.php' );
-//		$this->core = new Beans_Simple_Shortcodes_Core;
-//		$this->core->init();
+		require_once( $this->plugin_dir_path . 'class-beans-simple-shortcodes-core.php' );
+		$this->core = new Beans_Simple_Shortcodes_Core;
+		$this->core->init();
 
 		if ( is_admin() ) {
 			require_once( $this->plugin_dir_path . 'class-beans-simple-shortcodes-admin.php' );
