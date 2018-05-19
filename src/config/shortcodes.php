@@ -18,7 +18,7 @@ function configuration() {
 		'post_categories',
 		'post_terms',
 		'post_edit',
-//		'copyright',
+		'copyright',
 //		'childtheme_link',
 //		'theme_link',
 //		'wordpress_link',
@@ -44,7 +44,6 @@ function configuration() {
 
 	return $shortcodes_array;
 
-//		'copyright' => 'Shortcode that adds a visual copyright notice. Supported attributes are <strong>before</strong>, <strong>after</strong>, <strong>copyright</strong>, and <strong>first-year</strong>: ',
 //		'childtheme_link' => 'Shortcode that adds a link to the child theme. Supported attributes are <strong>before</strong>, <strong>after</strong>, <strong>child-theme-name</strong>, and <strong>child-theme-url</strong>: ',
 //		'theme_link' => 'Shortcode that adds a link to the Beans Theme Framework. Supported attributes are <strong>before</strong>, <strong>after</strong>, <strong>beans</strong>, and <strong>beans-url</strong>: ',
 //		'wordpress_link' => 'Shortcode that adds a link to WordPress.org. Supported attributes are <strong>before</strong>, <strong>after</strong>, <strong>wordpress</strong>, and <strong>wordpress-url</strong>:',
