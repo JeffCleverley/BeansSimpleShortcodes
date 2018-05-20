@@ -16,7 +16,6 @@ class Beans_Simple_Shortcodes_Registry {
 	 */
 	public $enabled_shortcode;
 
-
 	/**
 	 * Constructor.
 	 */
