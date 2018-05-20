@@ -1,4 +1,5 @@
 <?php
+
 namespace LearningCurve\BeansSimpleShortcodes;
 
 /**********************************************************************************************************************
@@ -11,6 +12,10 @@ namespace LearningCurve\BeansSimpleShortcodes;
  * Supported shortcode attributes are:
  *          before          Output before link but inside the span, default is empty string.
  *          after           Output after link but inside the span, default is empty string.
+ *          span-class      Additional classes to add to the span element, default is empty string.
+ *          span-style      Inline CSS to style the span element, default is empty string.
+ *          link-class      Additional classes to add to the link anchor element, default is empty string.
+ *          link-style      Inline CSS to style the link anchor element, default is empty string.
  *          no-comments     Text when there are no comments, default is 'Leave a Comment'.
  *          one-comment     Text when there is exactly one comment, default is '1 Comment'.
  *          more-comments   Text when there are multiple comments, use %s character as placeholder for actual number,
@@ -49,6 +54,10 @@ function post_comments_shortcode( $atts ) {
 	$defaults = array(
 		'before'        => '',
 		'after'         => '',
+		'span-class'    => '',
+		'span-style'    => '',
+		'link-class'    => '',
+		'link-style'    => '',
 		'no-comments'   => __( 'Leave a Comment', BEANS_SIMPLE_SHORTCODES ),
 		'one-comment'   => __( '1 Comment', BEANS_SIMPLE_SHORTCODES ),
 		'more-comments' => __( '%s Comments', BEANS_SIMPLE_SHORTCODES ),
@@ -86,13 +95,16 @@ function post_comments_shortcode( $atts ) {
 	ob_start();
 
 	beans_open_markup_e( 'beans_simple_post_meta_comments_span', 'span', array(
-		'style' => 'color:inherit;',
+		'class' => $atts['span-class'],
+		'style' => 'color:inherit; ' . $atts['span-style'],
 	) );
 
 	beans_output_e( 'beans_simple_post_meta_comments_text_prefix', $atts['before'] );
 
 	beans_open_markup_e( $id, 'a', array(
 		'href' => get_comments_link(), // Automatically escaped.
+		'class' => $atts['link-class'],
+		'style' => $atts['link-style'],
 	) );
 
 	printf( $comment_text, (int) get_comments_number( $post->ID ) );
