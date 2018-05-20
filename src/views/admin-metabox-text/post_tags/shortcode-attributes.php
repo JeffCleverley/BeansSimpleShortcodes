@@ -19,5 +19,15 @@
 		<td>The separator between tag links</td>
 		<td>', '</td>
 	</tr>
+    <tr>
+        <td>class</td>
+        <td>Additional classes to add to the span element</td>
+        <td>Empty string</td>
+    </tr>
+    <tr>
+        <td>style</td>
+        <td>Inline CSS styling to add to the span element</td>
+        <td>Empty string</td>
+    </tr>
 </table>
 
