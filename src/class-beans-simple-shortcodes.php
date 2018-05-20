@@ -1,4 +1,5 @@
 <?php
+
 namespace LearningCurve\BeansSimpleShortcodes;
 
 class Beans_Simple_Shortcodes {
@@ -45,9 +46,9 @@ class Beans_Simple_Shortcodes {
 	 */
 	function __construct( $shortcodes, $beans_simple_shortcodes_dir_path, $text_domain ) {
 
-		$this->plugin_dir_path = $beans_simple_shortcodes_dir_path;
+		$this->plugin_dir_path    = $beans_simple_shortcodes_dir_path;
 		$this->shortcodes_library = $shortcodes;
-		$this->plugin_textdomain = $text_domain;
+		$this->plugin_textdomain  = $text_domain;
 
 		foreach ( $this->shortcodes_library as $shortcode => $shortcode_descriptions_array ) {
 

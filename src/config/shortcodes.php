@@ -37,7 +37,7 @@ function configure_shortcodes_registration_array() {
 		require BEANS_SIMPLE_SHORTCODES_DIR_PATH . "src/views/admin-metabox-text/" . $shortcodes_item . "/shortcode-attributes.php";
 		$attributes_description = ob_get_clean();
 
-		$shortcodes_array[ $shortcodes_item ]['shortcode_description'] = __( $shortcode_label, BEANS_SIMPLE_SHORTCODES );
+		$shortcodes_array[ $shortcodes_item ]['shortcode_description']  = __( $shortcode_label, BEANS_SIMPLE_SHORTCODES );
 		$shortcodes_array[ $shortcodes_item ]['attributes_description'] = __( $attributes_description, BEANS_SIMPLE_SHORTCODES );
 
 	};

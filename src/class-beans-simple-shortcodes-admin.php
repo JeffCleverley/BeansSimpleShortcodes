@@ -1,4 +1,5 @@
 <?php
+
 namespace LearningCurve\BeansSimpleShortcodes;
 
 class Beans_Simple_Shortcodes_Admin {
@@ -48,8 +49,8 @@ class Beans_Simple_Shortcodes_Admin {
 
 		foreach ( $this->shortcodes_library as $shortcode => $shortcode_descriptions ) {
 
-			$shortcode_description = $shortcode_descriptions[ 'shortcode_description' ];
-			$attributes_description =  $shortcode_descriptions[ 'attributes_description' ];
+			$shortcode_description  = $shortcode_descriptions['shortcode_description'];
+			$attributes_description = $shortcode_descriptions['attributes_description'];
 
 			add_action( 'admin_init', function () use ( $shortcode, $shortcode_description, $attributes_description ) {
 				$this->register_admin_metaboxes( $shortcode, $shortcode_description, $attributes_description );
@@ -93,9 +94,9 @@ class Beans_Simple_Shortcodes_Admin {
 		beans_output_e( "beans_simple_shortcodes_{$shortcode}_label_text", $label );
 		$label = ob_get_clean();
 
-		$shortcode_attributes_description =  $shortcodes_attributes;
+		$shortcode_attributes_description = $shortcodes_attributes;
 		ob_start();
-		beans_output_e( "beans_simple_shortcodes_{$shortcode}_attributes_description", $shortcode_attributes_description);
+		beans_output_e( "beans_simple_shortcodes_{$shortcode}_attributes_description", $shortcode_attributes_description );
 		$shortcode_attributes_description = ob_get_clean();
 
 		$checkbox_label = __( "Check this box and click save to <strong>deactivate</strong> the <strong>[beans_{$shortcode}]</strong> shortcode", $this->plugin_textdomain );
@@ -120,14 +121,14 @@ class Beans_Simple_Shortcodes_Admin {
 		);
 
 		beans_register_options(
-            $fields,
-            'beans_simple_shortcodes_settings',
-            "beans_simple_{$shortcode}_shortcode",
-            array(
-                'title'   => __( "[beans_{$shortcode}]", $this->plugin_textdomain ),
-                'context' => 'normal',
-            )
-        );
+			$fields,
+			'beans_simple_shortcodes_settings',
+			"beans_simple_{$shortcode}_shortcode",
+			array(
+				'title'   => __( "[beans_{$shortcode}]", $this->plugin_textdomain ),
+				'context' => 'normal',
+			)
+		);
 
 	}
 
