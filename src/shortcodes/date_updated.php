@@ -11,6 +11,8 @@ namespace LearningCurve\BeansSimpleShortcodes;
  * Support shortcode attributes are:
  *          before          Output before the date, Defaults to 'Updated on '.
  *          after           Output before the date, Defaults to an empty string.
+ *          class           Additional classes to add to the span element, defaults to an empty string.
+ *          style           Inline CSS styling to add to the span element, defaults to an empty string.
  *          date-format     Date format for output, defaults to user set WordPress date format option.
  *                          Other acceptable formats found here: https://codex.wordpress.org/Formatting_Date_and_Time
  *
@@ -28,6 +30,8 @@ function date_updated_shortcode( $atts ) {
 	$defaults = array(
 		'before'      => __( 'Updated on ', BEANS_SIMPLE_SHORTCODES ),
 		'after'       => '',
+		'class'       => '',
+		'style'       => '',
 		'date-format' => get_option( 'date_format' ),
 	);
 
@@ -50,7 +54,8 @@ function date_updated_shortcode( $atts ) {
 	ob_start();
 
 	beans_open_markup_e( 'beans_simple_post_meta_date_updated_span', 'span', array(
-		'style' => 'color: inherit',
+		'class' => $atts['class'],
+		'style' => 'color: inherit; ' . $atts['style'],
 	) );
 
 	beans_output_e( 'beans_simple_post_meta_date_updated_prefix', $atts['before'] );
