@@ -24,5 +24,15 @@
         <td>The year copyright first applies</td>
         <td>Empty string</td>
     </tr>
+    <tr>
+        <td>class</td>
+        <td>Additional classes to add to the span element</td>
+        <td>Empty string</td>
+    </tr>
+    <tr>
+        <td>style</td>
+        <td>Inline CSS to style the span element</td>
+        <td>Empty string</td>
+    </tr>
 </table>
 
