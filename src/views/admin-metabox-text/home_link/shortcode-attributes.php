@@ -34,5 +34,4 @@
         <td>Inline CSS to style the anchor link element</td>
         <td>Empty string</td>
     </tr>
-    <tr>
 </table>
