@@ -20,4 +20,4 @@
 		<td>Currently defined WordPress setting</td>
 	</tr>
 </table>
-<p>Acceptable time formats can be found here: <a href="https://codex.wordpress.org/Formatting_Date_and_Time">https://codex.wordpress.org/Formatting_Date_and_Time</a></p>
+<p>Acceptable time formats can be found here: <a href="https://codex.wordpress.org/Formatting_Date_and_Time" target="_blank">https://codex.wordpress.org/Formatting_Date_and_Time</a></p>

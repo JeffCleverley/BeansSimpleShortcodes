@@ -29,6 +29,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 define( 'BEANS_SIMPLE_SHORTCODES', 'beans-simple-shortcodes' ); //Text domain
+define( 'BEANS_SIMPLE_SHORTCODES_DIR_URL', plugin_dir_url( __FILE__ ) );
+define( 'BEANS_SIMPLE_SHORTCODES_DIR_PATH', plugin_dir_path( __FILE__ ) );
+
 
 register_activation_hook( __FILE__, __NAMESPACE__ . '\deactivate_when_beans_not_activated_theme' );
 add_action( 'switch_theme', __NAMESPACE__ . '\deactivate_when_beans_not_activated_theme' );

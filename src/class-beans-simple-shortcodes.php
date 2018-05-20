@@ -48,10 +48,10 @@ class Beans_Simple_Shortcodes {
 	 *
 	 * @since 1.0
 	 */
-	function __construct( $shortcodes ) {
+	function __construct( $shortcodes, $beans_simple_shortcodes_dir_path, $beans_simple_shortcodes_dir_url ) {
 
-		$this->plugin_dir_url  = plugin_dir_url( __FILE__ );
-		$this->plugin_dir_path = plugin_dir_path( __FILE__ );
+		$this->plugin_dir_url  = $beans_simple_shortcodes_dir_path;
+		$this->plugin_dir_path = $beans_simple_shortcodes_dir_url;
 		$this->shortcodes_library = $shortcodes;
 
 		foreach ( $this->shortcodes_library as $shortcode => $shortcode_descriptions_array ) {
@@ -84,12 +84,12 @@ class Beans_Simple_Shortcodes {
 	 */
 	public function instantiate() {
 
-		require_once( $this->plugin_dir_path . 'class-beans-simple-shortcodes-core.php' );
+		require_once( $this->plugin_dir_path . 'src/class-beans-simple-shortcodes-core.php' );
 		$this->core = new Beans_Simple_Shortcodes_Core;
 		$this->core->init();
 
 		if ( is_admin() ) {
-			require_once( $this->plugin_dir_path . 'class-beans-simple-shortcodes-admin.php' );
+			require_once( $this->plugin_dir_path . 'src/class-beans-simple-shortcodes-admin.php' );
 			$this->admin = new Beans_Simple_Shortcodes_Admin;
 			$this->admin->init();
 		}
@@ -110,7 +110,11 @@ function Beans_Simple_Shortcodes() {
 	static $object;
 
 	if ( null == $object ) {
-		$object = new Beans_Simple_Shortcodes( $shortcodes );
+		$object = new Beans_Simple_Shortcodes(
+			$shortcodes,
+			BEANS_SIMPLE_SHORTCODES_DIR_URL,
+			BEANS_SIMPLE_SHORTCODES_DIR_PATH
+		);
 	}
 
 	return $object;
