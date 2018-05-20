@@ -1,7 +1,7 @@
 <?php
 namespace LearningCurve\BeansSimpleShortcodes;
 
-class Beans_Simple_Shortcodes_Core {
+class Beans_Simple_Shortcodes_Registry {
 
 	/**
 	 * The array of enabled shortcodes.

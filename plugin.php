@@ -21,7 +21,6 @@
  * Requires PHP:    5.6
  */
 
-
 namespace LearningCurve\BeansSimpleShortcodes;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -43,6 +42,7 @@ add_action( 'switch_theme', __NAMESPACE__ . '\deactivate_when_beans_not_activate
  * @return void
  */
 function deactivate_when_beans_not_activated_theme() {
+
 	// If Beans is the active theme, bail out.
 	$theme = wp_get_theme();
 	if ( in_array( $theme->template, array( 'beans', BEANS_SIMPLE_SHORTCODES ), true ) ) {
@@ -55,6 +55,7 @@ function deactivate_when_beans_not_activated_theme() {
 		$message = __( 'Sorry, you can\'t activate this plugin unless the <a href="https://www.getbeans.io" target="_blank">Beans</a> framework is installed and a child theme is activated.', BEANS_SIMPLE_SHORTCODES );
 		wp_die( wp_kses_post( $message ) );
 	}
+
 }
 
 /**
@@ -74,6 +75,7 @@ function autoload_files() {
 	foreach ( $files as $file ) {
 		require __DIR__ . '/src/' . $file;
 	}
+
 }
 
 
@@ -86,7 +88,9 @@ function autoload_files() {
  * @return void
  */
 function launch() {
+
 	autoload_files();
+
 }
 
 launch();

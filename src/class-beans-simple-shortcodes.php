@@ -11,12 +11,7 @@ class Beans_Simple_Shortcodes {
 	/**
 	 * The plugin textdomain, for translations.
 	 */
-	public $plugin_textdomain = 'beans-simple-shortcodes';
-
-	/**
-	 * The url to the plugin directory.
-	 */
-	public $plugin_dir_url;
+	public $plugin_textdomain;
 
 	/**
 	 * The path to the plugin directory.
@@ -48,11 +43,11 @@ class Beans_Simple_Shortcodes {
 	 *
 	 * @since 1.0
 	 */
-	function __construct( $shortcodes, $beans_simple_shortcodes_dir_path, $beans_simple_shortcodes_dir_url ) {
+	function __construct( $shortcodes, $beans_simple_shortcodes_dir_path, $text_domain ) {
 
-		$this->plugin_dir_url  = $beans_simple_shortcodes_dir_path;
-		$this->plugin_dir_path = $beans_simple_shortcodes_dir_url;
+		$this->plugin_dir_path = $beans_simple_shortcodes_dir_path;
 		$this->shortcodes_library = $shortcodes;
+		$this->plugin_textdomain = $text_domain;
 
 		foreach ( $this->shortcodes_library as $shortcode => $shortcode_descriptions_array ) {
 
@@ -84,8 +79,8 @@ class Beans_Simple_Shortcodes {
 	 */
 	public function instantiate() {
 
-		require_once( $this->plugin_dir_path . 'src/class-beans-simple-shortcodes-core.php' );
-		$this->core = new Beans_Simple_Shortcodes_Core;
+		require_once( $this->plugin_dir_path . 'src/class-beans-simple-shortcodes-registry.php' );
+		$this->core = new Beans_Simple_Shortcodes_Registry;
 		$this->core->init();
 
 		if ( is_admin() ) {
@@ -112,8 +107,8 @@ function Beans_Simple_Shortcodes() {
 	if ( null == $object ) {
 		$object = new Beans_Simple_Shortcodes(
 			$shortcodes,
-			BEANS_SIMPLE_SHORTCODES_DIR_URL,
-			BEANS_SIMPLE_SHORTCODES_DIR_PATH
+			BEANS_SIMPLE_SHORTCODES_DIR_PATH,
+			BEANS_SIMPLE_SHORTCODES
 		);
 	}
 
