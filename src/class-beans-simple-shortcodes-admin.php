@@ -52,7 +52,7 @@ class Beans_Simple_Shortcodes_Admin {
 			$attributes_description =  $shortcode_descriptions[ 'attributes_description' ];
 
 			add_action( 'admin_init', function () use ( $shortcode, $shortcode_description, $attributes_description ) {
-				$this->register_shortcodes_admin( $shortcode, $shortcode_description, $attributes_description );
+				$this->register_admin_metaboxes( $shortcode, $shortcode_description, $attributes_description );
 			} );
 
 		}
@@ -84,7 +84,7 @@ class Beans_Simple_Shortcodes_Admin {
 		require __DIR__ . "/views/admin-screen.php";
 	}
 
-	public function register_shortcodes_admin( $shortcode, $shortcode_intro, $shortcodes_attributes ) {
+	public function register_admin_metaboxes( $shortcode, $shortcode_intro, $shortcodes_attributes ) {
 
 		$label = __( $shortcode_intro, $this->plugin_textdomain );
 		ob_start();

@@ -2,7 +2,7 @@
 
 namespace LearningCurve\BeansSimpleShortcodes;
 
-function configuration() {
+function configure_shortcodes_registration_array() {
 
 	$shortcodes_array = array();
 

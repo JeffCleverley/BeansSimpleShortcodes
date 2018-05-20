@@ -30,14 +30,14 @@ class Beans_Simple_Shortcodes_Core {
 	 */
 	public function init() {
 
-		array_map( array( $this, 'register_shortcodes' ), $this->enabled_shortcodes );
+		array_map( array( $this, 'add_enabled_shortcodes' ), $this->enabled_shortcodes );
 
 	}
 
 	/**
 	 * Add each shortcodes and it's functionality.
 	 */
-	public function register_shortcodes( $enabled_shortcode ) {
+	public function add_enabled_shortcodes( $enabled_shortcode ) {
 
 		$this->enabled_shortcode = $enabled_shortcode;
 

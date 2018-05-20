@@ -105,7 +105,7 @@ class Beans_Simple_Shortcodes {
  */
 function Beans_Simple_Shortcodes() {
 
-	$shortcodes = configuration();
+	$shortcodes = configure_shortcodes_registration_array();
 
 	static $object;
 
