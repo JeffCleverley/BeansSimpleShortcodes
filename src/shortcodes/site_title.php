@@ -11,6 +11,8 @@ namespace LearningCurve\BeansSimpleShortcodes;
  * Supported shortcode attributes are:
  *          before      Output before link but inside span, default is empty string.
  *          after       Output after link but inside span, default is empty string.
+ *          class       Additional classes to add to the span element, defaults to an empty string.
+ *          style       Inline CSS styling to add to the span element, defaults to an empty string.
  *
  * Defaults pass through `wordpress_link_shortcode_defaults` filter.
  * Output passes through `site_title_shortcode` filter before returning.
@@ -26,6 +28,8 @@ function site_title_shortcode( $atts ) {
 	$defaults = array(
 		'before' => '',
 		'after'  => '',
+		'class'  => '',
+		'style'  => '',
 	);
 
 	/**
@@ -45,7 +49,8 @@ function site_title_shortcode( $atts ) {
 	ob_start();
 
 	beans_open_markup_e( 'beans_simple_site_title', 'span', array(
-		'style' => 'color:inherit;',
+		'class' => $atts['class'],
+		'style' => 'color: inherit; ' . $atts['style'],
 	) );
 
 	beans_output_e( 'beans_simple_site_title_text_prefix', $atts['before'] );

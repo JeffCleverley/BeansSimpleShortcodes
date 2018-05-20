@@ -24,5 +24,15 @@
         <td>Name of the taxonomy to display</td>
         <td>category</td>
     </tr>
+    <tr>
+        <td>class</td>
+        <td>Additional classes to add to the span element</td>
+        <td>Empty string</td>
+    </tr>
+    <tr>
+        <td>style</td>
+        <td>Inline CSS styling to add to the span element</td>
+        <td>Empty string</td>
+    </tr>
 </table>
 

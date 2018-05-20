@@ -14,6 +14,26 @@
 		<td>Displayed after the link to the child theme</td>
 		<td>Empty string</td>
 	</tr>
+    <tr>
+        <td>span-class</td>
+        <td>Additional classes to add to the span element</td>
+        <td>Empty string</td>
+    </tr>
+    <tr>
+        <td>span-style</td>
+        <td>Inline CSS to style the span element</td>
+        <td>Empty string</td>
+    </tr>
+    <tr>
+        <td>link-class</td>
+        <td>Additional classes to add to the anchor link element</td>
+        <td>Empty string</td>
+    </tr>
+    <tr>
+        <td>link-style</td>
+        <td>Inline CSS to style the anchor link element</td>
+        <td>Empty string</td>
+    </tr>
 	<tr>
 		<td>child-theme-name</td>
 		<td>Name of the child theme</td>

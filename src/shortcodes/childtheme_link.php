@@ -1,4 +1,5 @@
 <?php
+
 namespace LearningCurve\BeansSimpleShortcodes;
 
 /**********************************************************************************************************************
@@ -13,6 +14,10 @@ namespace LearningCurve\BeansSimpleShortcodes;
  * Supported shortcode attributes are:
  *          before              Output before link but inside span, default is empty string.
  *          after               Output after link but inside span, default is empty string.
+ *          span-class          Additional classes to add to the span element, default is empty string.
+ *          span-style          Inline CSS to style the span element, default is empty string.
+ *          link-class          Additional classes to add to the link anchor element, default is empty string.
+ *          link-style          Inline CSS to style the link anchor element, default is empty string.
  *          child-theme-name    Name of the child theme, default is the defined CHILD_THEME_NAME.
  *          child-theme-url     URL of the child theme, default is the defined CHILD_THEME_URL.
  *
@@ -40,6 +45,10 @@ function childtheme_link_shortcode( $atts ) {
 	$defaults = array(
 		'after'            => '',
 		'before'           => '',
+		'span-class'       => '',
+		'span-style'       => '',
+		'link-class'       => '',
+		'link-style'       => '',
 		'child-theme-name' => CHILD_THEME_NAME,
 		'child-theme-url'  => CHILD_THEME_URL,
 	);
@@ -61,13 +70,16 @@ function childtheme_link_shortcode( $atts ) {
 	ob_start();
 
 	beans_open_markup_e( 'beans_simple_childtheme_link_span', 'span', array(
-		'style' => 'color:inherit;',
+		'class' => $atts['span-class'],
+		'style' => 'color:inherit; ' . $atts['span-style'],
 	) );
 
 	beans_output_e( 'beans_simple_childtheme_link_text_prefix', $atts['before'] );
 
 	beans_open_markup_e( 'beans_simple_childtheme_link', 'a', array(
-		'href' => $atts['child-theme-url'],
+		'href'  => $atts['child-theme-url'],
+		'class' => $atts['link-class'],
+		'style' => $atts['link-style'],
 	) );
 
 	beans_output_e( 'beans_simple_childtheme_link_text', $atts['child-theme-name'] );

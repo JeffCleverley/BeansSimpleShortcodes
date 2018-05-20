@@ -1,4 +1,5 @@
 <?php
+
 namespace LearningCurve\BeansSimpleShortcodes;
 
 /**********************************************************************************************************************
@@ -17,6 +18,10 @@ namespace LearningCurve\BeansSimpleShortcodes;
  *      logout-text         Text for the login link, default is 'Log out'.
  *      login-redirect      Redirect page path after login, default is empty string - must be absolute path.
  *      logout-redirect     Redirect page path after logout, default is home_url() - must be absolute path.
+ *      span-class          Additional classes to add to the span element, default is empty string.
+ *      span-style          Inline CSS to style the span element, default is empty string.
+ *      link-class          Additional classes to add to the link anchor element, default is empty string.
+ *      link-style          Inline CSS to style the link anchor element, default is empty string.
  *
  * Defaults pass through `loginout_shortcode_defaults` filter.
  * Output passes through `loginout_shortcode` filter before returning.
@@ -38,6 +43,10 @@ function loginout_shortcode( $atts ) {
 		'logout-text'     => __( 'Log out', BEANS_SIMPLE_SHORTCODES ),
 		'login-redirect'  => '',
 		'logout-redirect' => home_url(),
+		'span-class'      => '',
+		'span-style'      => '',
+		'link-class'      => '',
+		'link-style'      => '',
 	);
 
 	/**
@@ -57,7 +66,8 @@ function loginout_shortcode( $atts ) {
 	ob_start();
 
 	beans_open_markup_e( 'beans_simple_loginout_span', 'span', array(
-		'style' => 'color:inherit;',
+		'class' => $atts['span-class'],
+		'style' => 'color:inherit; ' . $atts['span-style'],
 	) );
 
 	if ( ! is_user_logged_in() ) {
@@ -66,6 +76,8 @@ function loginout_shortcode( $atts ) {
 
 		beans_open_markup_e( 'beans_simple_login_link', 'a', array(
 			'href' => esc_url( wp_login_url( $atts['login-redirect'] ) ),
+			'class' => $atts['link-class'],
+			'style' => $atts['link-style'],
 		) );
 
 		beans_output_e( 'beans_simple_login_text', $atts['login-text'] );
@@ -80,6 +92,8 @@ function loginout_shortcode( $atts ) {
 
 		beans_open_markup_e( 'beans_simple_logout_link', 'a', array(
 			'href' => esc_url( wp_logout_url( $atts['logout-redirect'] ) ),
+			'class' => $atts['link-class'],
+			'style' => $atts['link-style'],
 		) );
 
 		beans_output_e( 'beans_simple_logout_text', $atts['logout-text'] );

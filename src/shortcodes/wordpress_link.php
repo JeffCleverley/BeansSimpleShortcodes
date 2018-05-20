@@ -1,4 +1,5 @@
 <?php
+
 namespace LearningCurve\BeansSimpleShortcodes;
 
 /**********************************************************************************************************************
@@ -13,6 +14,10 @@ namespace LearningCurve\BeansSimpleShortcodes;
  *          after           Output after link but inside span, default is empty string.
  *          wordpress       Name of Beans theme, default is 'WordPress'.
  *          wordpress-url   Url of the Beans theme framework, default is https://wordpress.org/.
+ *          span-class      Additional classes to add to the span element, default is empty string.
+ *          span-style      Inline CSS to style the span element, default is empty string.
+ *          link-class      Additional classes to add to the link anchor element, default is empty string.
+ *          link-style      Inline CSS to style the link anchor element, default is empty string.
  *
  * Defaults pass through `wordpress_link_shortcode_defaults` filter.
  * Output passes through `wordpress_link_shortcode` filter before returning.
@@ -30,6 +35,10 @@ function wordpress_link_shortcode( $atts ) {
 		'after'         => '',
 		'wordpress'     => __( 'WordPress', BEANS_SIMPLE_SHORTCODES ),
 		'wordpress-url' => 'https://wordpress.org/',
+		'span-class'    => '',
+		'span-style'    => '',
+		'link-class'    => '',
+		'link-style'    => '',
 	);
 
 	/**
@@ -49,13 +58,16 @@ function wordpress_link_shortcode( $atts ) {
 	ob_start();
 
 	beans_open_markup_e( 'beans_simple_wordpress_link_span', 'span', array(
-		'style' => 'color:inherit;',
+		'class' => $atts['span-class'],
+		'style' => 'color:inherit; ' . $atts['span-style'],
 	) );
 
 	beans_output_e( 'beans_simple_wordpress_link_text_prefix', $atts['before'] );
 
 	beans_open_markup_e( 'beans_simple_wordpress_link', 'a', array(
 		'href' => $atts['wordpress-url'],
+		'class' => $atts['link-class'],
+		'style' => $atts['link-style'],
 	) );
 
 	beans_output_e( 'beans_simple_wordpress_link_text', $atts['wordpress'] );

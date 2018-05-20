@@ -12,6 +12,8 @@ namespace LearningCurve\BeansSimpleShortcodes;
  *          before      Output before link but inside the span, default is 'Tagged with: '.
  *          after       Output after link but inside the span, default is empty string.
  *          sep         Separator string between tags, default is ', '.
+ *          class       Additional classes to add to the span element, defaults to an empty string.
+ *          style       Inline CSS styling to add to the span element, defaults to an empty string.
  *
  * Defaults pass through `post_tags_shortcode_defaults` filter.
  * Output passes through `post_tags_shortcode` filter before returning.
@@ -35,6 +37,8 @@ function post_tags_shortcode( $atts ) {
 		'before' => __( 'Tagged with: ', BEANS_SIMPLE_SHORTCODES ),
 		'after'  => '',
 		'sep'    => ', ',
+		'class'  => '',
+		'style'  => '',
 	);
 
 	/**
@@ -63,13 +67,10 @@ function post_tags_shortcode( $atts ) {
 	// Use the output buffer to ensure everything renders in order
 	ob_start();
 
-	beans_open_markup_e(
-		'beans_simple_post_meta_tags',
-		'span',
-		array(
-			'style' => 'color:inherit;',
-		)
-	);
+	beans_open_markup_e( 'beans_simple_post_meta_tags', 'span', array(
+		'class' => $atts['class'],
+		'style' => 'color: inherit; ' . $atts['style'],
+	) );
 
 	beans_output_e( 'beans_simple_post_meta_tags_text_prefix', $atts['before'] );
 

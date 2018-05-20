@@ -24,6 +24,26 @@
         <td>URL of wordpress.org</td>
         <td><a href="https://wordpress.org/" target="_blank">https://wordpress.org/</a></td>
     </tr>
+    <tr>
+        <td>span-class</td>
+        <td>Additional classes to add to the span element</td>
+        <td>Empty string</td>
+    </tr>
+    <tr>
+        <td>span-style</td>
+        <td>Inline CSS to style the span element</td>
+        <td>Empty string</td>
+    </tr>
+    <tr>
+        <td>link-class</td>
+        <td>Additional classes to add to the anchor link element</td>
+        <td>Empty string</td>
+    </tr>
+    <tr>
+        <td>link-style</td>
+        <td>Inline CSS to style the anchor link element</td>
+        <td>Empty string</td>
+    </tr>
 </table>
 
 

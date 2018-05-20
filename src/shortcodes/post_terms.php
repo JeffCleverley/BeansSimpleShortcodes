@@ -1,4 +1,5 @@
 <?php
+
 namespace LearningCurve\BeansSimpleShortcodes;
 
 /**********************************************************************************************************************
@@ -13,6 +14,8 @@ namespace LearningCurve\BeansSimpleShortcodes;
  *          after       Output after link but inside the span, default is empty string.
  *          sep         Separator string between term links, default is ', '.
  *          taxonomy    Name of the taxonomy to display, default is 'category'.
+ *          class       Additional classes to add to the span element, defaults to an empty string.
+ *          style       Inline CSS styling to add to the span element, defaults to an empty string.
  *
  * Defaults pass through `post_terms_shortcode_defaults` filter.
  * Output passes through `post_terms_shortcode` filter before returning.
@@ -32,6 +35,8 @@ function post_terms_shortcode( $atts ) {
 		'after'    => '',
 		'sep'      => ', ',
 		'taxonomy' => 'category',
+		'class'    => '',
+		'style'    => '',
 	);
 
 	/**
@@ -60,13 +65,10 @@ function post_terms_shortcode( $atts ) {
 	// Use the output buffer to ensure everything renders in order
 	ob_start();
 
-	beans_open_markup_e(
-		'beans_simple_post_meta_terms',
-		'span',
-		array(
-			'style' => 'color:inherit;',
-		)
-	);
+	beans_open_markup_e( 'beans_simple_post_meta_terms', 'span', array(
+		'class' => $atts['class'],
+		'style' => 'color: inherit; ' . $atts['style'],
+	) );
 
 	beans_output_e( 'beans_simple_post_meta_terms_text_prefix', $atts['before'] );
 
