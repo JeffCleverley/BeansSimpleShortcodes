@@ -18,6 +18,8 @@ class Beans_Simple_Shortcodes_Registry {
 
 	/**
 	 * Constructor.
+	 *
+	 * @since 1.0
 	 */
 	public function __construct() {
 
@@ -27,6 +29,8 @@ class Beans_Simple_Shortcodes_Registry {
 
 	/**
 	 * Initialize
+	 *
+	 * @since 1.0
 	 */
 	public function init() {
 
@@ -35,7 +39,12 @@ class Beans_Simple_Shortcodes_Registry {
 	}
 
 	/**
-	 * Add each shortcodes and it's functionality.
+	 * Add each shortcodes and it's functionality by registering the shortcode
+	 * and including it's shortcode from the shortcodes directory
+	 *
+	 * @since 1.0
+	 *
+	 * @param $enabled_shortcode string The individual shortcode to add.
 	 */
 	public function add_enabled_shortcodes( $enabled_shortcode ) {
 

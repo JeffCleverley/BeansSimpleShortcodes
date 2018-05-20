@@ -37,7 +37,7 @@ add_action( 'switch_theme', __NAMESPACE__ . '\deactivate_when_beans_not_activate
 /**
  * If Beans is not the activated theme, deactivate this plugin and pop a die message when not switching themes.
  *
- * @since 0.1
+ * @since 1.0
  *
  * @return void
  */
@@ -61,7 +61,7 @@ function deactivate_when_beans_not_activated_theme() {
 /**
  * Autoload the plugin's files.
  *
- * @since 1.1.0
+ * @since 1.0
  *
  * @return void
  */
@@ -82,7 +82,7 @@ function autoload_files() {
 /**
  * Launch the plugin.
  *
- * @since 1.1.0
+ * @since 1.0
  *
  * @return void
  */

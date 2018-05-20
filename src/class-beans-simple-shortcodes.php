@@ -10,32 +10,32 @@ class Beans_Simple_Shortcodes {
 	public $plugin_version = '0.1';
 
 	/**
-	 * The plugin textdomain, for translations.
+	 * To store the plugin textdomain, for translations.
 	 */
 	public $plugin_textdomain;
 
 	/**
-	 * The path to the plugin directory.
+	 * To store the path to the plugin directory.
 	 */
 	public $plugin_dir_path;
 
 	/**
-	 * The array of shortcodes and their information.
+	 * To store the array of shortcodes and their information.
 	 */
 	public $shortcodes_library;
 
 	/**
-	 * The array of enabled shortcodes.
+	 * To store the array of enabled shortcodes.
 	 */
 	public $enabled_shortcodes;
 
 	/**
-	 * Core functionality.
+	 * To store the shortcode registry object.
 	 */
-	public $core;
+	public $registry;
 
 	/**
-	 * Admin menu and settings page.
+	 * To store the shortcode admin object.
 	 */
 	public $admin;
 
@@ -43,6 +43,10 @@ class Beans_Simple_Shortcodes {
 	 * Constructor.
 	 *
 	 * @since 1.0
+	 *
+	 * @param $shortcodes array Multidimensional array containing shortcodes and their information.
+	 * @param $beans_simple_shortcodes_dir_path string  Absolute path to plugin directory.
+	 * @param $text_domain string Text domain for translations
 	 */
 	function __construct( $shortcodes, $beans_simple_shortcodes_dir_path, $text_domain ) {
 
@@ -74,15 +78,15 @@ class Beans_Simple_Shortcodes {
 
 
 	/**
-	 * Include the class file, instantiate the classes, create objects.
+	 * Include the class files, instantiate the classes, create objects.
 	 *
 	 * @since 1.0
 	 */
 	public function instantiate() {
 
 		require_once( $this->plugin_dir_path . 'src/class-beans-simple-shortcodes-registry.php' );
-		$this->core = new Beans_Simple_Shortcodes_Registry;
-		$this->core->init();
+		$this->registry = new Beans_Simple_Shortcodes_Registry;
+		$this->registry->init();
 
 		if ( is_admin() ) {
 			require_once( $this->plugin_dir_path . 'src/class-beans-simple-shortcodes-admin.php' );
@@ -96,6 +100,7 @@ class Beans_Simple_Shortcodes {
 
 /**
  * Helper function to retrieve the static object without using globals.
+ * Feed the shortcodes array for registration into the Beans_Simple_Shortcodes object for construction
  *
  * @since 1.0
  */

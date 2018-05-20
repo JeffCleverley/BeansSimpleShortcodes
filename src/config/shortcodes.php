@@ -2,6 +2,14 @@
 
 namespace LearningCurve\BeansSimpleShortcodes;
 
+/**
+ * Configure a multidimensional array of shortcodes and their descriptions and attributes documentation.
+ * To be fed into the objects and used to register the shortcodes and their admin metaboxes.
+ *
+ * @since 1.0
+ *
+ * @return array
+ */
 function configure_shortcodes_registration_array() {
 
 	$shortcodes_array = array();
