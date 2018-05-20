@@ -1,2 +1,2 @@
-Shortcode to display the time a post was last updated and modified.
-Supported attributes are <strong>before</strong>, <strong>after</strong>, and <strong>time-format</strong>:
+Shortcode to display the time a post was last updated and modified. The time and attribute content displayed inside a &lt;span&gt; element.</br>
+Supported attributes are <strong>before</strong>, <strong>after</strong>, <strong>class</strong>, <strong>style</strong>, and <strong>time-format</strong>:
