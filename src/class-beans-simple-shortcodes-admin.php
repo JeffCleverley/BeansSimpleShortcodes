@@ -1,4 +1,5 @@
 <?php
+
 namespace LearningCurve\BeansSimpleShortcodes;
 
 class Beans_Simple_Shortcodes_Admin {
@@ -46,10 +47,13 @@ class Beans_Simple_Shortcodes_Admin {
 
 		add_action( 'admin_menu', array( $this, 'admin_menu' ), 150 );
 
-		foreach ( $this->shortcodes_library as $shortcode => $shortcode_intro ) {
+		foreach ( $this->shortcodes_library as $shortcode => $shortcode_descriptions ) {
 
-			add_action( 'admin_init', function () use ( $shortcode, $shortcode_intro ) {
-				$this->register_shortcodes_admin( $shortcode, $shortcode_intro );
+			$shortcode_description  = $shortcode_descriptions['shortcode_description'];
+			$attributes_description = $shortcode_descriptions['attributes_description'];
+
+			add_action( 'admin_init', function () use ( $shortcode, $shortcode_description, $attributes_description ) {
+				$this->register_admin_metaboxes( $shortcode, $shortcode_description, $attributes_description );
 			} );
 
 		}
@@ -71,6 +75,7 @@ class Beans_Simple_Shortcodes_Admin {
 				'display_simple_shortcodes_settings_screen'
 			)
 		);
+
 	}
 
 	/**
@@ -78,19 +83,21 @@ class Beans_Simple_Shortcodes_Admin {
 	 */
 	public function display_simple_shortcodes_settings_screen() {
 
-		require __DIR__ . "/views/admin.php";
+		require __DIR__ . "/views/admin-screen.php";
 
 	}
 
-
-	public function register_shortcodes_admin( $shortcode, $shortcode_intro ) {
+	public function register_admin_metaboxes( $shortcode, $shortcode_intro, $shortcodes_attributes ) {
 
 		$label = __( $shortcode_intro, $this->plugin_textdomain );
 		ob_start();
 		beans_output_e( "beans_simple_shortcodes_{$shortcode}_label_text", $label );
 		$label = ob_get_clean();
 
-		$shortcode_attributes_description = include __DIR__ . "/views/{$shortcode}-description.php";
+		$shortcode_attributes_description = $shortcodes_attributes;
+		ob_start();
+		beans_output_e( "beans_simple_shortcodes_{$shortcode}_attributes_description", $shortcode_attributes_description );
+		$shortcode_attributes_description = ob_get_clean();
 
 		$checkbox_label = __( "Check this box and click save to <strong>deactivate</strong> the <strong>[beans_{$shortcode}]</strong> shortcode", $this->plugin_textdomain );
 		ob_start();
@@ -114,14 +121,14 @@ class Beans_Simple_Shortcodes_Admin {
 		);
 
 		beans_register_options(
-            $fields,
-            'beans_simple_shortcodes_settings',
-            "beans_simple_{$shortcode}_shortcode",
-            array(
-                'title'   => __( "[beans_{$shortcode}]", $this->plugin_textdomain ),
-                'context' => 'normal',
-            )
-        );
+			$fields,
+			'beans_simple_shortcodes_settings',
+			"beans_simple_{$shortcode}_shortcode",
+			array(
+				'title'   => __( "[beans_{$shortcode}]", $this->plugin_textdomain ),
+				'context' => 'normal',
+			)
+		);
 
 	}
 

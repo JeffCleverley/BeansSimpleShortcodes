@@ -21,7 +21,6 @@
  * Requires PHP:    5.6
  */
 
-
 namespace LearningCurve\BeansSimpleShortcodes;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -29,6 +28,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 define( 'BEANS_SIMPLE_SHORTCODES', 'beans-simple-shortcodes' ); //Text domain
+define( 'BEANS_SIMPLE_SHORTCODES_DIR_URL', plugin_dir_url( __FILE__ ) );
+define( 'BEANS_SIMPLE_SHORTCODES_DIR_PATH', plugin_dir_path( __FILE__ ) );
+
 
 register_activation_hook( __FILE__, __NAMESPACE__ . '\deactivate_when_beans_not_activated_theme' );
 add_action( 'switch_theme', __NAMESPACE__ . '\deactivate_when_beans_not_activated_theme' );
@@ -40,6 +42,7 @@ add_action( 'switch_theme', __NAMESPACE__ . '\deactivate_when_beans_not_activate
  * @return void
  */
 function deactivate_when_beans_not_activated_theme() {
+
 	// If Beans is the active theme, bail out.
 	$theme = wp_get_theme();
 	if ( in_array( $theme->template, array( 'beans', BEANS_SIMPLE_SHORTCODES ), true ) ) {
@@ -52,6 +55,7 @@ function deactivate_when_beans_not_activated_theme() {
 		$message = __( 'Sorry, you can\'t activate this plugin unless the <a href="https://www.getbeans.io" target="_blank">Beans</a> framework is installed and a child theme is activated.', BEANS_SIMPLE_SHORTCODES );
 		wp_die( wp_kses_post( $message ) );
 	}
+
 }
 
 /**
@@ -64,14 +68,15 @@ function deactivate_when_beans_not_activated_theme() {
 function autoload_files() {
 
 	$files = array(
-        'class-beans-simple-shortcodes.php'
+		'/config/shortcodes.php',
+		'class-beans-simple-shortcodes.php',
 	);
 
 	foreach ( $files as $file ) {
 		require __DIR__ . '/src/' . $file;
 	}
-}
 
+}
 
 
 /**
@@ -82,7 +87,9 @@ function autoload_files() {
  * @return void
  */
 function launch() {
+
 	autoload_files();
+
 }
 
 launch();
