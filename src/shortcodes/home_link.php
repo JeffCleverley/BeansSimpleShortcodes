@@ -1,4 +1,5 @@
 <?php
+
 namespace LearningCurve\BeansSimpleShortcodes;
 
 /**********************************************************************************************************************
@@ -9,8 +10,12 @@ namespace LearningCurve\BeansSimpleShortcodes;
  * Shortcode displays a link to the home page inside a span element
  *
  * Supported shortcode attributes are:
- *          before      Output before link but inside span, default is empty string.
- *          after       Output after link but inside span, default is empty string.
+ *          before          Output before link but inside span, default is empty string.
+ *          after           Output after link but inside span, default is empty string.
+ *          span-class      Additional classes to add to the span element, default is empty string.
+ *          span-style      Inline CSS to style the span element, default is empty string.
+ *          link-class      Additional classes to add to the link anchor element, default is empty string.
+ *          link-style      Inline CSS to style the link anchor element, default is empty string.
  *
  * Defaults pass through `home_link_shortcode_defaults` filter.
  * Output passes through `home_link_shortcode` filter before returning.
@@ -24,8 +29,12 @@ namespace LearningCurve\BeansSimpleShortcodes;
 function home_link_shortcode( $atts ) {
 
 	$defaults = array(
-		'after'  => '',
-		'before' => '',
+		'after'      => '',
+		'before'     => '',
+		'span-class' => '',
+		'span-style' => '',
+		'link-class' => '',
+		'link-style' => '',
 	);
 
 	/**
@@ -45,13 +54,16 @@ function home_link_shortcode( $atts ) {
 	ob_start();
 
 	beans_open_markup_e( 'beans_simple_home_link_span', 'span', array(
-		'style' => 'color:inherit;',
+		'class' => $atts['span-class'],
+		'style' => 'color:inherit; ' . $atts['span-style'],
 	) );
 
 	beans_output_e( 'beans_simple_home_link_text_prefix', $atts['before'] );
 
 	beans_open_markup_e( 'beans_simple_home_link', 'a', array(
 		'href' => home_url(),
+		'class' => $atts['link-class'],
+		'style' => $atts['link-style'],
 	) );
 
 	beans_output_e( 'beans_simple_home_link_text', get_bloginfo( 'name' ) );
