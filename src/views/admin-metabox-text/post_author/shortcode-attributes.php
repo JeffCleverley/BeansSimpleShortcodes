@@ -14,4 +14,14 @@
 		<td>Displayed after the post author's name</td>
 		<td>Empty string</td>
 	</tr>
+    <tr>
+        <td>class</td>
+        <td>Additional classes to add to the span element</td>
+        <td>Empty string</td>
+    </tr>
+    <tr>
+        <td>style</td>
+        <td>Inline CSS styling to add to the span element</td>
+        <td>Empty string</td>
+    </tr>
 </table>

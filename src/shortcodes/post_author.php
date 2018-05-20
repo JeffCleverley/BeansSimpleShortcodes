@@ -1,4 +1,5 @@
 <?php
+
 namespace LearningCurve\BeansSimpleShortcodes;
 
 /**********************************************************************************************************************
@@ -11,6 +12,8 @@ namespace LearningCurve\BeansSimpleShortcodes;
  * Supported shortcode attributes are:
  *          before      Output before the post author's name inside the span, default is 'By '.
  *          after       Output  after the post author's name inside the span, default is an empty string.
+ *          class       Additional classes to add to the span element, defaults to an empty string.
+ *          style       Inline CSS styling to add to the span element, defaults to an empty string.
  *
  * Output passes through `post_author_shortcode` filter before returning.
  *
@@ -37,6 +40,8 @@ function post_author_shortcode( $atts ) {
 	$defaults = array(
 		'before' => __( 'By ', BEANS_SIMPLE_SHORTCODES ),
 		'after'  => '',
+		'class'  => '',
+		'style'  => '',
 	);
 
 	/**
@@ -58,7 +63,8 @@ function post_author_shortcode( $atts ) {
 	ob_start();
 
 	beans_open_markup_e( 'beans_simple_post_meta_author_span', 'span', array(
-		'style'     => 'color: inherit',
+		'class' => $atts['class'],
+		'style' => 'color: inherit; ' . $atts['style'],
 		'itemprop'  => 'author',
 		'itemscope' => '',
 		'itemtype'  => 'http://schema.org/Person',
