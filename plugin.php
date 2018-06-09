@@ -11,7 +11,7 @@
  * @wordpress-plugin
  * Plugin Name:     Beans Simple Shortcodes
  * Plugin URI:      http://github.com/JeffCleverley/BeansSimpleShortcodes
- * Description:     Description: Beans Simple Shortcodes adds a selection of useful shortcodes for displaying post, theme, and author information more easily.
+ * Description:     Beans Simple Shortcodes adds a selection of useful shortcodes for displaying post, theme, and author information more easily.
  * Version:         1.0
  * Author:          Jeff Cleverley
  * Author URI:      https://learningcurve.xyz
