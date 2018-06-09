@@ -68,6 +68,8 @@ class Beans_Simple_Shortcodes {
 	/**
 	 * Initialize.
 	 *
+	 * Hook in the method to instantiate the plugin admin and registry object after Beans theme initialisation.
+	 *
 	 * @since 1.0
 	 */
 	public function init() {

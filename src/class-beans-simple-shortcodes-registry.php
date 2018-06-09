@@ -30,6 +30,8 @@ class Beans_Simple_Shortcodes_Registry {
 	/**
 	 * Initialize
 	 *
+	 * Map each of the enabled shortcodes to a method to add them.
+	 *
 	 * @since 1.0
 	 */
 	public function init() {
@@ -40,7 +42,7 @@ class Beans_Simple_Shortcodes_Registry {
 
 	/**
 	 * Add each shortcodes and it's functionality by registering the shortcode
-	 * and including it's shortcode from the shortcodes directory
+	 * and then including it from the shortcodes directory
 	 *
 	 * @since 1.0
 	 *

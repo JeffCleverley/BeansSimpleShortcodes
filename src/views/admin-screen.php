@@ -8,5 +8,5 @@
         ?>
 	</span>
 </h2>
-<?php echo beans_options( 'beans_simple_shortcodes_settings' ); ?>
+	<?php echo beans_options( 'beans_simple_shortcodes_settings' ); ?>
 </div>
